@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>requestAnimationFrame动画</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #test {
+      width: 200px;
+      height: 200px;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test">
+
+  </div>
+  <!--requestAnimationFrame动画.html-->
+
+  <!-- requestAnimationFrame 根据重绘的时间为更新的时间 -->
+  <script type="text/javascript">
+
+    let test = document.getElementById('test')
+    let index = 0
+    let flag = false
+
+   
+    function move() {
+      if (flag == true) {
+        return
+      }
+      index++
+      test.style.transform = `translateX(${index}px)`
+      requestAnimationFrame(move)
+    }
+
+    requestAnimationFrame(move)
+
+    setTimeout(() => {
+      flag = true
+    }, 2000);
+
+
+
+  </script>
+</body>
+
+</html>
